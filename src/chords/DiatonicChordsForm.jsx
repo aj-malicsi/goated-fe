@@ -17,24 +17,7 @@ export default function MajorChordsForm() {
 
   const onSubmit = data => {
     resetField("answer")
-    // console.log(data.answer, (notes[val] + notes[val+2] + notes[val + 4]))
-    
-    // if(key === 'C'){
-    //   if(data.answer === (cMajor[val] + cMajor[val+2] + cMajor[val+4] )){
-    //     console.log(data.answer, (cMajor[val] + cMajor[val+2] + cMajor[val+4] ))
-    //     setCorrect(correct + 1)
-    //     setTotal(total + 1)
-
-    //   }
-    //   else{
-    //     console.log(data.answer, (cMajor[val] + cMajor[val+2] + cMajor[val+4] ))
-    //     setWrong(wrong + 1)
-    //     setTotal(total + 1)
-
-    //   }
-    // }
-
-
+  
     //switch
 
     switch(key){
