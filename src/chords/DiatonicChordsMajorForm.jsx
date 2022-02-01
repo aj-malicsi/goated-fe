@@ -10,9 +10,11 @@ export default function DiatonicChordsMajorForm() {
   const [correct, setCorrect] = useState(0)
   const [wrong, setWrong] = useState(0)
   const [total, setTotal] = useState(0)
-  const [key, setKey] = useState('E')
+  const [key, setKey] = useState('F')
 
   const { register, handleSubmit, resetField, formState: { errors } } = useForm();
+
+  let scale = []
   
 
   const onSubmit = data => {
@@ -22,42 +24,60 @@ export default function DiatonicChordsMajorForm() {
 
     switch(key){
       case "C":
-        if(data.answer === (cMajor[val] + cMajor[val+2] + cMajor[val+4] )){
-          console.log(data.answer, (cMajor[val] + cMajor[val+2] + cMajor[val+4] ))
+        scale  = cMajor
+        if(data.answer === (scale[val] + scale[val+2] + scale[val+4] )){
+          console.log(data.answer, (scale[val] + scale[val+2] + scale[val+4] ))
           setCorrect(correct + 1)
           setTotal(total + 1)
   
         }
         else{
-          console.log(data.answer, (cMajor[val] + cMajor[val+2] + cMajor[val+4] ))
+          console.log(data.answer, (scale[val] + scale[val+2] + scale[val+4] ))
           setWrong(wrong + 1)
           setTotal(total + 1)
         }
         break;
       
       case "D":
-        if(data.answer === (dMajor[val] + dMajor[val+2] + dMajor[val+4] )){
-          console.log(data.answer, (dMajor[val] + dMajor[val+2] + dMajor[val+4] ))
+        scale  = dMajor
+        if(data.answer === (scale[val] + scale[val+2] + scale[val+4] )){
+          console.log(data.answer, (scale[val] + scale[val+2] + scale[val+4] ))
           setCorrect(correct + 1)
           setTotal(total + 1)
   
         }
         else{
-          console.log(data.answer, (dMajor[val] + dMajor[val+2] + dMajor[val+4] ))
+          console.log(data.answer, (scale[val] + scale[val+2] + scale[val+4] ))
           setWrong(wrong + 1)
           setTotal(total + 1)
         }
         break;
 
       case "E":
-        if(data.answer === (eMajor[val] + eMajor[val+2] + eMajor[val+4] )){
-          console.log(data.answer, (eMajor[val] + eMajor[val+2] + eMajor[val+4] ))
+        scale  = eMajor
+        if(data.answer === (scale[val] + scale[val+2] + scale[val+4] )){
+          console.log(data.answer, (scale[val] + scale[val+2] + scale[val+4] ))
           setCorrect(correct + 1)
           setTotal(total + 1)
   
         }
         else{
-          console.log(data.answer, (eMajor[val] + eMajor[val+2] + eMajor[val+4] ))
+          console.log(data.answer, (scale[val] + scale[val+2] + scale[val+4] ))
+          setWrong(wrong + 1)
+          setTotal(total + 1)
+        }
+        break;
+
+      case "F":
+        scale  = fMajor
+        if(data.answer === (scale[val] + scale[val+2] + scale[val+4] )){
+          console.log(data.answer, (scale[val] + scale[val+2] + scale[val+4] ))
+          setCorrect(correct + 1)
+          setTotal(total + 1)
+  
+        }
+        else{
+          console.log(data.answer, (scale[val] + scale[val+2] + scale[val+4] ))
           setWrong(wrong + 1)
           setTotal(total + 1)
         }
@@ -83,7 +103,7 @@ export default function DiatonicChordsMajorForm() {
         let display = cMajor[val]
         return(
             <>
-            <p>You're in the key of {key}</p>
+            <p>You're in the key of {key}, {val+1}</p>
             <p>what are the notes of {display}</p>
 
             <p>correct: {correct}</p>
@@ -156,6 +176,28 @@ export default function DiatonicChordsMajorForm() {
 
     var fMajor = ['F', 'G', 'A', 'Bb', 'C', 'D', 'E', 
     'F', 'G', 'A', 'Bb', 'C', 'D', 'E']
+
+    if(key === 'F'){
+      let display = fMajor[val]
+      return(
+          <>
+          <p>You're in the key of {key}</p>
+          <p>what are the notes of {display}, {val+1}</p>
+
+          <p>correct: {correct}</p>
+          <p>wrong: {wrong}</p>
+          <p>total: {total}</p>
+
+          <form onSubmit={handleSubmit(onSubmit)}>
+
+          <input defaultValue="" {...register("answer")} />
+          
+          <input type="submit" />
+          </form>
+          
+          </>
+      )
+    }
 
     var gMajor = ['G', 'A', 'B', 'C', 'D', 'E', 'F#',
     'G', 'A', 'B', 'C', 'D', 'E', 'F#']
