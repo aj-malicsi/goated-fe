@@ -10,7 +10,7 @@ export default function DiatonicChordsMajorForm() {
   const [correct, setCorrect] = useState(0)
   const [wrong, setWrong] = useState(0)
   const [total, setTotal] = useState(0)
-  const [key, setKey] = useState('D')
+  const [key, setKey] = useState('E')
 
   const { register, handleSubmit, resetField, formState: { errors } } = useForm();
   
@@ -49,6 +49,20 @@ export default function DiatonicChordsMajorForm() {
         }
         break;
 
+      case "E":
+        if(data.answer === (eMajor[val] + eMajor[val+2] + eMajor[val+4] )){
+          console.log(data.answer, (eMajor[val] + eMajor[val+2] + eMajor[val+4] ))
+          setCorrect(correct + 1)
+          setTotal(total + 1)
+  
+        }
+        else{
+          console.log(data.answer, (eMajor[val] + eMajor[val+2] + eMajor[val+4] ))
+          setWrong(wrong + 1)
+          setTotal(total + 1)
+        }
+        break;
+
       
       
 
@@ -64,10 +78,6 @@ export default function DiatonicChordsMajorForm() {
     var cMajor = ['C', 'D', 'E', 'F', 'G', 'A', 'B',
     'C', 'D', 'E', 'F', 'G', 'A', 'B']
 
-    var dMajor = ['D', 'E', 'F#', 'G', 'A', 'B', 'C#',
-    'D', 'E', 'F#', 'G', 'A', 'B', 'C#']
-
-    
 
     if(key === 'C'){
         let display = cMajor[val]
@@ -92,12 +102,15 @@ export default function DiatonicChordsMajorForm() {
   
     }
 
+    var dMajor = ['D', 'E', 'F#', 'G', 'A', 'B', 'C#',
+    'D', 'E', 'F#', 'G', 'A', 'B', 'C#']
+
     if(key === 'D'){
       let display = dMajor[val]
       return(
           <>
           <p>You're in the key of {key}</p>
-          <p>what are the notes of {display}</p>
+          <p>what are the notes of {display}, {val+1}</p>
 
           <p>correct: {correct}</p>
           <p>wrong: {wrong}</p>
@@ -112,8 +125,46 @@ export default function DiatonicChordsMajorForm() {
           
           </>
       )
+    }
 
-  }
+    var eMajor = ['E', 'F#', 'G#', 'A', 'B', 'C#', 'D#',
+    'E', 'F#', 'G#', 'A', 'B', 'C#', 'D#' ]
+
+    if(key === 'E'){
+      let display = eMajor[val]
+      return(
+          <>
+          <p>You're in the key of {key}</p>
+          <p>what are the notes of {display}, {val+1}</p>
+
+          <p>correct: {correct}</p>
+          <p>wrong: {wrong}</p>
+          <p>total: {total}</p>
+
+          <form onSubmit={handleSubmit(onSubmit)}>
+
+          <input defaultValue="" {...register("answer")} />
+          
+          <input type="submit" />
+          </form>
+          
+          </>
+      )
+    }
+
+
+
+    var fMajor = ['F', 'G', 'A', 'Bb', 'C', 'D', 'E', 
+    'F', 'G', 'A', 'Bb', 'C', 'D', 'E']
+
+    var gMajor = ['G', 'A', 'B', 'C', 'D', 'E', 'F#',
+    'G', 'A', 'B', 'C', 'D', 'E', 'F#']
+
+    var aMajor = ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#',
+    'A', 'B', 'C#', 'D', 'E', 'F#', 'G#']
+
+    var bMajor = ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#',
+    'B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#']
     
 
 
