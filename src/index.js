@@ -9,6 +9,8 @@ import FourthsForm from './intervals/FourthsForm';
 import ThirdsForm from './intervals/ThirdsForm';
 import IntervalsIndex from './intervals/IntervalsIndex';
 import HomePage from './common/HomePage';
+import DiatonicChordsMajorForm from './chords/DiatonicChordsMajorForm';
+import ChordsIndex from './chords/ChordsIndex';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,6 +21,9 @@ ReactDOM.render(
         <Route path="/intervals/fourths" element={<FourthsForm />}/>
         <Route path="/intervals/thirds" element={<ThirdsForm />}/>
         <Route path="/intervals" element={<IntervalsIndex />}/>
+
+        <Route path="/chords" element={<ChordsIndex />} />
+        <Route path="/chords/diatonic/major" element={<DiatonicChordsMajorForm />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

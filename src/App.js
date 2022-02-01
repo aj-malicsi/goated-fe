@@ -1,7 +1,6 @@
 
 import './App.css';
 import FifthsForm from './intervals/FifthsForm';
-import MajorChordsForm from './chords/DiatonicChordsForm';
 import NavBar from "./common/NavBar";
 
 

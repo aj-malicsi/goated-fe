@@ -5,6 +5,7 @@ export default function NavBar(){
         <>
         <Link to="/">Home</Link>
         <Link to="/intervals">Intervals</Link>
+        <Link to="/chords">Chords</Link>
         </>
     )
 }

@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 
 
 
-export default function MajorChordsForm() {
+export default function DiatonicChordsMajorForm() {
 
   const [correct, setCorrect] = useState(0)
   const [wrong, setWrong] = useState(0)
