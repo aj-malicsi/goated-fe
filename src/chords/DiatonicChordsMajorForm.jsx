@@ -10,7 +10,7 @@ export default function DiatonicChordsMajorForm() {
   const [correct, setCorrect] = useState(0)
   const [wrong, setWrong] = useState(0)
   const [total, setTotal] = useState(0)
-  const [key, setKey] = useState('A')
+  const [key, setKey] = useState('B')
 
   const { register, handleSubmit, resetField, formState: { errors } } = useForm();
 
@@ -113,6 +113,21 @@ export default function DiatonicChordsMajorForm() {
           setTotal(total + 1)
         }
         break;
+
+        case "B":
+          scale  = bMajor
+          if(data.answer === (scale[val] + scale[val+2] + scale[val+4] )){
+            console.log(data.answer, (scale[val] + scale[val+2] + scale[val+4] ))
+            setCorrect(correct + 1)
+            setTotal(total + 1)
+    
+          }
+          else{
+            console.log(data.answer, (scale[val] + scale[val+2] + scale[val+4] ))
+            setWrong(wrong + 1)
+            setTotal(total + 1)
+          }
+          break;
 
       
       
@@ -280,8 +295,32 @@ export default function DiatonicChordsMajorForm() {
       )
     }
 
+    
+
     var bMajor = ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#',
     'B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#']
+
+    if(key === 'B'){
+      let display = bMajor[val]
+      return(
+          <>
+          <p>You're in the key of {key}</p>
+          <p>what are the notes of {display}, {val+1}</p>
+
+          <p>correct: {correct}</p>
+          <p>wrong: {wrong}</p>
+          <p>total: {total}</p>
+
+          <form onSubmit={handleSubmit(onSubmit)}>
+
+          <input defaultValue="" {...register("answer")} />
+          
+          <input type="submit" />
+          </form>
+          
+          </>
+      )
+    }
     
 
 
