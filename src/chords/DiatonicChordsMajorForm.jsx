@@ -5,12 +5,13 @@ import { useForm } from "react-hook-form";
 
 
 
-export default function DiatonicChordsMajorForm() {
+export default function DiatonicChordsMajorForm(props) {
+  console.log(props)
 
   const [correct, setCorrect] = useState(0)
   const [wrong, setWrong] = useState(0)
   const [total, setTotal] = useState(0)
-  const [key, setKey] = useState('B')
+  const [key, setKey] = useState(props.key)
 
   const { register, handleSubmit, resetField, formState: { errors } } = useForm();
 
@@ -326,21 +327,9 @@ export default function DiatonicChordsMajorForm() {
 
   return (
     <>
-    <p>what are the notes of {display} Major?</p>
-
-    <p>correct: {correct}</p>
-    <p>wrong: {wrong}</p>
-    <p>total: {total}</p>
-
-    <form onSubmit={handleSubmit(onSubmit)}>
-
-      <input defaultValue="" {...register("answer")} />
-
-      
-      
-      
-      <input type="submit" />
-    </form>
+    it aint working chief
+    <p>{typeof props.propKey}</p>
+    
     </>
   );
 
