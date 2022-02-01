@@ -8,12 +8,13 @@ import FifthsForm from './intervals/FifthsForm';
 import FourthsForm from './intervals/FourthsForm';
 import ThirdsForm from './intervals/ThirdsForm';
 import IntervalsIndex from './intervals/IntervalsIndex';
+import HomePage from './common/HomePage';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}/>
+        <Route path="/" element={<HomePage />}/>
         <Route path="/intervals/fifths" element={<FifthsForm />}/>
         <Route path="/intervals/fourths" element={<FourthsForm />}/>
         <Route path="/intervals/thirds" element={<ThirdsForm />}/>

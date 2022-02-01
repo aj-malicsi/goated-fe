@@ -56,10 +56,7 @@ export default function FifthsForm() {
 
     <form onSubmit={handleSubmit(onSubmit)}>
 
-      <input defaultValue="" {...register("answer")} />
-
-      
-      
+      <input defaultValue="" {...register("answer")} />      
       
       <input type="submit" />
     </form>

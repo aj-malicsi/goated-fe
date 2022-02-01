@@ -1,8 +1,4 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
+
 import './App.css';
 import FifthsForm from './intervals/FifthsForm';
 import MajorChordsForm from './chords/DiatonicChordsForm';
@@ -16,8 +12,7 @@ function App() {
     home
 
   
-   
-    <MajorChordsForm />
+
     </>
   
   );

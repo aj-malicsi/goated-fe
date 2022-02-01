@@ -5,6 +5,7 @@ export default function IntervalsIndex(){
     return(
         <>
         <NavBar />
+        <br/>
         <Link to="/intervals/fifths">Fifths</Link> <br/>
         <Link to="/intervals/fourths">Fourths</Link><br/>
         <Link to="/intervals/thirds">Thirds</Link><br/>
