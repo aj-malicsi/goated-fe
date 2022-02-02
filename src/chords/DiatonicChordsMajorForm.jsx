@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {useState} from "react"
 import { useForm } from "react-hook-form";
 
@@ -11,7 +11,14 @@ export default function DiatonicChordsMajorForm(props) {
   const [correct, setCorrect] = useState(0)
   const [wrong, setWrong] = useState(0)
   const [total, setTotal] = useState(0)
-  const [key, setKey] = useState(props.key)
+  const [key, setKey] = useState(props.propKey)
+
+  useEffect( () =>{
+    setKey(props.propKey)
+
+  }, [key])
+
+  console.log(key)
 
   const { register, handleSubmit, resetField, formState: { errors } } = useForm();
 

@@ -30,7 +30,7 @@ export default function DiatonicChordsDisplay(){
             <input type="submit" />
         </form>
 
-        <DiatonicChordsMajorForm key={propKey}/>
+        <DiatonicChordsMajorForm propKey={key}/>
         </>
       
     );
