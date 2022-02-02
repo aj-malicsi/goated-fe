@@ -11,14 +11,8 @@ export default function DiatonicChordsMajorForm(props) {
   const [correct, setCorrect] = useState(0)
   const [wrong, setWrong] = useState(0)
   const [total, setTotal] = useState(0)
-  const [key, setKey] = useState(props.propKey)
-
-  useEffect( () =>{
-    setKey(props.propKey)
-
-  }, [key])
-
-  console.log(key)
+  
+  let key = props.propKey
 
   const { register, handleSubmit, resetField, formState: { errors } } = useForm();
 
